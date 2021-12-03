@@ -1,0 +1,112 @@
+<h1 mat-dialog-title *ngIf="!form.controls['Id'].value">Add Person</h1>
+<h1 mat-dialog-title *ngIf="form.controls['Id'].value">Edit Person</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="person-form-row">
+      <div class="person-form-field">
+        <mat-form-field appearance="legacy">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="FirstName" />
+          <mat-error
+            *ngIf="
+              (firstName?.dirty || firstName?.touched) &&
+              firstName?.errors?.required
+            "
+          >
+            Please enter first name.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="person-form-field">
+        <mat-form-field appearance="legacy">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" formControlName="LastName" />
+          <mat-error
+            *ngIf="
+              (lastName?.dirty || lastName?.touched) &&
+              lastName?.errors?.required
+            "
+          >
+            Please enter first name.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="person-form-row">
+      <div class="person-form-field">
+        <mat-form-field appearance="legacy">
+          <mat-label>Date of Birth</mat-label>
+          <input
+            matInput
+            formControlName="DateOfBirth"
+            [matDatepicker]="datepicker"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="datepicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #datepicker> </mat-datepicker>
+          <mat-error
+            *ngIf="
+              (dateOfBirth?.dirty || dateOfBirth?.touched) &&
+              dateOfBirth?.errors?.required
+            "
+          >
+            Please enter date of birth.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="person-form-field">
+        <mat-form-field appearance="legacy">
+          <mat-label>Telephone</mat-label>
+          <input matInput placeholder="Telephone" formControlName="Telephone" />
+          <mat-error
+            *ngIf="
+              (telephone?.dirty || telephone?.touched) &&
+              telephone?.errors?.required
+            "
+          >
+            Please enter telephone.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="person-form-row">
+      <div class="person-form-field">
+        <mat-form-field appearance="legacy">
+          <mat-label>Email</mat-label>
+          <input
+            [email]="true"
+            matInput
+            placeholder="Email"
+            formControlName="Email"
+          />
+          <mat-error
+            *ngIf="(email?.dirty || email?.touched) && email?.errors?.required"
+          >
+            Please enter email.
+          </mat-error>
+          <mat-error
+            *ngIf="(email?.dirty || email?.touched) && email?.errors?.email"
+          >
+            Invalid email format.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="person-form-footer">
+      <button (click)="cancelForm()" mat-button>Cancel</button>
+      <button
+        (click)="saveForm()"
+        [disabled]="form.invalid"
+        mat-button
+        color="primary"
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

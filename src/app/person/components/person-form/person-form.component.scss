@@ -1,0 +1,25 @@
+.person-form-row {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  margin-bottom: 20px;
+}
+
+.person-form-footer {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+  align-content: flex-end;
+}
+
+.person-form-field {
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+mat-form-field {
+  width: 100%;
+}

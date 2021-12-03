@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+}
+.add-button-container {
+  padding-bottom: 16px;
+}
+.outerContainer {
+  padding: 5px;
+  box-sizing: content-box;
+}
+
+div.container {
+  margin-bottom: 10px;
+}
+
+div.container > div {
+  border-bottom: 1px solid #b6b6b6;
+}
+
+.header {
+  font-weight: 600;
+}

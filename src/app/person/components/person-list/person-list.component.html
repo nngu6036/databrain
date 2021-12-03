@@ -1,0 +1,54 @@
+<div class="add-button-container">
+  <button mat-raised-button (click)="addPerson()" class="demo-button">
+    Add person
+  </button>
+</div>
+<div class="outerContainer">
+  <div fxLayout="row" fxLayoutGap="1px" fxLayout.sm="column" class="container">
+    <div fxFlex="20" fxLayoutAlign="center center" class="header">
+      First Name
+    </div>
+    <div fxFlex="20" fxLayoutAlign="center center" class="header">
+      Last Name
+    </div>
+    <div fxFlex="15" fxLayoutAlign="center center" class="header">DOB</div>
+    <div fxFlex="15" fxLayoutAlign="center center" class="header">
+      Telephone
+    </div>
+    <div fxFlex="20" fxLayoutAlign="center center" class="header">Email</div>
+    <div fxFlex="10" fxLayoutAlign="center center" class="header">Actions</div>
+  </div>
+  <div
+    *ngFor="let person of persons"
+    fxLayout="row"
+    fxLayoutGap="1px"
+    fxLayout.sm="column"
+    class="container"
+  >
+    <div fxFlex="20" fxLayoutAlign="center center">{{ person.FirstName }}</div>
+    <div fxFlex="20" fxLayoutAlign="center center">
+      {{ person.LastName }}
+    </div>
+    <div fxFlex="15" fxLayoutAlign="center center">
+      {{ person.DateOfBirth | date: "dd/MM/yyyy" }}
+    </div>
+    <div fxFlex="15" fxLayoutAlign="center center">{{ person.Telephone }}</div>
+    <div fxFlex="20" fxLayoutAlign="center center">{{ person.Email }}</div>
+    <div fxFlex="10" fxLayoutAlign="center center">
+      <button
+        mat-icon-button
+        aria-label="Edit Person"
+        (click)="editPerson(person.Id)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        aria-label="Remove Person"
+        (click)="removePerson(person.Id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
